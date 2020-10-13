@@ -16,8 +16,6 @@ Main.Parent = ScreenGui
 Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Main.Position = UDim2.new(0.0846456587, 0, 0.55859375, 0)
 Main.Size = UDim2.new(0, 276, 0, 191)
-Main.Active = true
-Main.Draggable = true
 
 CodeBox.Name = "CodeBox"
 CodeBox.Parent = Main
