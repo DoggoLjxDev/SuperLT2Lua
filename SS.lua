@@ -68,9 +68,9 @@ Clear.TextWrapped = true
 Execute.MouseButton1Click:Connect(function()
 	local Code = script.Parent.CodeBox
 	game.Workspace.RemoteHandler.Remote:FireServer(Code)
-end
+end)
 
 Clear.MouseButton1Click:Connect(function()
 	local Box = script.Parent.CodeBox
 	Box.Text = ""
-end
+end)
