@@ -14,28 +14,35 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Main.Name = "Main"
 Main.Parent = ScreenGui
 Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Main.Position = UDim2.new(0.0846456587, 0, 0.55859375, 0)
-Main.Size = UDim2.new(0, 276, 0, 191)
+Main.Position = UDim2.new(0.356776565, 0, 0.319010407, 0)
+Main.Size = UDim2.new(0, 391, 0, 277)
+Main.ZIndex = 10
+Main.Active = true
+Main.Draggable = true
 
 CodeBox.Name = "CodeBox"
 CodeBox.Parent = Main
-CodeBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-CodeBox.Position = UDim2.new(0.0471014492, 0, 0.0575916246, 0)
-CodeBox.Size = UDim2.new(0, 252, 0, 134)
+CodeBox.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+CodeBox.Position = UDim2.new(0.0255754478, 0, 0.0288808662, 0)
+CodeBox.Size = UDim2.new(0, 370, 0, 212)
+CodeBox.ZIndex = 10
 CodeBox.Font = Enum.Font.SourceSans
-CodeBox.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
-CodeBox.PlaceholderText = "--SS Script Here!"
+CodeBox.PlaceholderColor3 = Color3.fromRGB(198, 198, 198)
+CodeBox.PlaceholderText = "SS Scripts Here!"
 CodeBox.Text = ""
-CodeBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+CodeBox.TextColor3 = Color3.fromRGB(25, 255, 0)
 CodeBox.TextScaled = true
 CodeBox.TextSize = 14.000
 CodeBox.TextWrapped = true
+CodeBox.TextXAlignment = Enum.TextXAlignment.Left
+CodeBox.TextYAlignment = Enum.TextYAlignment.Top
 
 Execute.Name = "Execute"
 Execute.Parent = Main
-Execute.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-Execute.Position = UDim2.new(0.0471014492, 0, 0.816753924, 0)
-Execute.Size = UDim2.new(0, 97, 0, 29)
+Execute.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
+Execute.Position = UDim2.new(0.0255754478, 0, 0.819494605, 0)
+Execute.Size = UDim2.new(0, 138, 0, 42)
+Execute.ZIndex = 10
 Execute.Font = Enum.Font.SourceSans
 Execute.Text = "Execute"
 Execute.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -45,9 +52,10 @@ Execute.TextWrapped = true
 
 Clear.Name = "Clear"
 Clear.Parent = Main
-Clear.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-Clear.Position = UDim2.new(0.608695626, 0, 0.816753924, 0)
-Clear.Size = UDim2.new(0, 97, 0, 29)
+Clear.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
+Clear.Position = UDim2.new(0.618925869, 0, 0.819494605, 0)
+Clear.Size = UDim2.new(0, 138, 0, 42)
+Clear.ZIndex = 10
 Clear.Font = Enum.Font.SourceSans
 Clear.Text = "Clear"
 Clear.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -55,23 +63,14 @@ Clear.TextScaled = true
 Clear.TextSize = 14.000
 Clear.TextWrapped = true
 
--- Scripts:
+--Scripts:
 
-local function WZDZZS_fake_script() -- Execute.LocalScript 
-	local script = Instance.new('LocalScript', Execute)
-
-	local Code = script.Parent.Parent.CodeBox
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		game.Workspace.RemoteHandler.Remote:FireServer(Code)
-	end)
+Execute.MouseButton1Click:Connect(function()
+	local Code = script.Parent.CodeBox
+	game.Workspace.RemoteHandler.Remote:FireServer(Code)
 end
-coroutine.wrap(WZDZZS_fake_script)()
-local function RPHS_fake_script() -- Clear.LocalScript 
-	local script = Instance.new('LocalScript', Clear)
 
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.CodeBox.Text = ""
-	end)
+Clear.MouseButton1Click:Connect(function()
+	local Box = script.Parent.CodeBox
+	Box.Text = ""
 end
-coroutine.wrap(RPHS_fake_script)()
